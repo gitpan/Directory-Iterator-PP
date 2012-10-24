@@ -4,7 +4,7 @@ use strict;
 use Carp;
 use File::Spec;
 
-our $VERSION = '1.000';
+our $VERSION = '1.000001';
 
 sub new {
     my $class = shift;
@@ -39,7 +39,8 @@ sub _scan {
 	    next if ( $de =~ m/^\./ );
 	}
 	my $path = File::Spec->join("$self->{dir}", $de);
-	if ( -d $path and ! -l _) {
+    return undef unless lstat($path);
+	if ( -d _ and ! -l _ ) {
 	    push @{$self->{dirs}}, $path;
 	}
 	elsif ( -f _ ) {
@@ -89,7 +90,7 @@ __END__
 
 =head1 NAME
 
-Directory::Iterator::PP - Recursively list file contents
+Directory::Iterator::PP - Recursive directory listing, pure-Perl backend.
 
 =head1 SYNOPSIS
 

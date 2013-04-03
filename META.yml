@@ -20,4 +20,4 @@ no_index:
 requires: {}
 resources:
   repository: https://github.com/sanbeg/Directory-Iterator
-version: 1.001003
+version: 1.001004
